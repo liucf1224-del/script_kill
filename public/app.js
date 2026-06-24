@@ -609,11 +609,38 @@ async function copyInviteText() {
   const scriptName = state.room.script.scriptName;
   const url = `${window.location.origin}${window.location.pathname}?room=${roomId}`;
   const text = `🎭 剧本杀邀请\n剧本：《${scriptName}》\n房间号：${roomId}\n\n点击链接加入：\n${url}`;
+  
   try {
-    await navigator.clipboard?.writeText(text);
-    toast('邀请链接已复制，发给好友即可！');
-  } catch {
-    toast(text);
+    // 方法1：尝试现代剪贴板 API（需要 HTTPS）
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+      toast('邀请链接已复制，发给好友即可！');
+      return;
+    }
+  } catch (err) {
+    console.log('剪贴板 API 失败，尝试降级方案', err);
+  }
+  
+  // 方法2：降级到 document.execCommand（兼容 HTTP）
+  try {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    const success = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    
+    if (success) {
+      toast('邀请链接已复制，发给好友即可！');
+    } else {
+      throw new Error('复制失败');
+    }
+  } catch (err) {
+    // 方法3：最终降级，显示文本让用户手动复制
+    toast('请手动复制下方文本：');
+    setTimeout(() => toast(text), 500);
   }
 }
 
