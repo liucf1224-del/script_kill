@@ -525,9 +525,13 @@ function renderFinalQuestions() {
     ${state.room.script.finalQuestions.map((item) => `
       <div class="answer-card">
         <b>${item.title}</b>
-        ${item.options.map((option) => `
-          <label class="option"><input type="radio" name="q_${item.id}" value="${option}" ${disabled} onchange="state.localAnswers['${item.id}']=this.value"> ${option}</label>
-        `).join('')}
+        ${item.options.map((option) => {
+          // 从 state.localAnswers 恢复选中状态，防止 WebSocket 重新渲染时丢失选择
+          const checked = state.localAnswers[String(item.id)] === option ? 'checked' : '';
+          return `
+            <label class="option"><input type="radio" name="q_${item.id}" value="${option}" ${disabled} ${checked} onchange="state.localAnswers['${item.id}']=this.value"> ${option}</label>
+          `;
+        }).join('')}
       </div>
     `).join('')}
     <button class="primary" ${disabled} onclick="submitAnswers()">${hasSubmitted() ? '已提交，等待其他玩家' : '提交我的答案'}</button>`;
