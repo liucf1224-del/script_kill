@@ -2,4 +2,4 @@
 requests
 
 # 开发工具（本地热更新，VPS Docker不需要）
-watchdog==3.0.0
+# watchdog==3.0.0
