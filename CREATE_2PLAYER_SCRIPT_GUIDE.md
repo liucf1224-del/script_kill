@@ -503,13 +503,20 @@ demo/[剧本英文名]_2player.json
 - 时长：用户自定义
 - 人数：2人
 
+【项目位置 - VPS环境】
+- 项目根目录：/home/back/script_kill
+- 输出文件到：/home/back/script_kill/demo/
+- 文件名格式：demo/[剧本英文名]_2player.json
+- 参考文件：/home/back/script_kill/demo/yizhu_weimian_demo.json
+
 【要求】
-1. 严格参考项目中的 `demo/yizhu_weimian_demo.json` 文件结构
-2. 参考 `TTS_CONFIG.md` 选择合适的角色音色
+1. 严格参考 demo/yizhu_weimian_demo.json 文件结构
+2. 参考 TTS_CONFIG.md 选择合适的角色音色
 3. 使用默认封面 `/default_cover.png`
 4. 使用默认音乐 `/sleep.mp3`
 5. 剧本ID使用 900002（如果已存在则递增）
-6. 输出完整的JSON文件到 `demo/` 目录
+6. player 字段固定为 2
+7. 2个角色，ID为 4001, 4002
 
 【角色要求】
 - 2个角色，每个角色有清晰的动机和秘密
@@ -526,10 +533,10 @@ demo/[剧本英文名]_2player.json
 - 至少2个最终问题
 - 提供完整的真相揭示
 
-【项目位置】
-- 当前项目在：[告诉Hermes你的项目路径]
-- 输出文件到：demo/ 目录
-- 文件名：demo/[剧本英文名]_2player.json
+【音频路径规范】
+- 音频根目录：/audio/[剧本英文名]/
+- 角色音频：/audio/[剧本英文名]/characters/4001/
+- 轮次音频：/audio/[剧本英文名]/rounds/1/
 
 请开始创作！
 ```

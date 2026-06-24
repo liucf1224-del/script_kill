@@ -137,6 +137,13 @@
 - 时长：6-8分钟
 - 人数：1人
 
+【项目位置 - VPS环境】
+- 项目根目录：/home/back/script_kill
+- 输出文件到：/home/back/script_kill/demo/
+- 文件名格式：demo/[剧本英文名]_solo.json
+- 参考文件：/home/back/script_kill/demo/yizhu_weimian_demo.json
+- 参考风格：参考 1.log 中的《问佛》剧情
+
 【核心机制】
 1. 主角失去记忆，需通过探索关键词找回真相
 2. 关键词系统：
@@ -149,14 +156,13 @@
 3. 记忆拼图：通过【物品名+回忆】触发记忆碎片
 
 【要求】
-1. 参考 `demo/yizhu_weimian_demo.json` 的JSON结构
-2. player固定为1
-3. scriptId使用900010（如已存在则递增）
-4. 只有1个角色（主角），ID为1001
+1. 参考 demo/yizhu_weimian_demo.json 的JSON结构
+2. player 固定为 1
+3. scriptId 使用 900010（如已存在则递增）
+4. 只有1个角色（主角），ID为 1001
 5. 创建5-8个NPC列表
 6. 使用默认封面 `/default_cover.png`
 7. 使用默认音乐 `/sleep.mp3`
-8. 输出到 `demo/` 目录
 
 【角色设定】
 - 主角：失忆者，通过探索找回记忆
@@ -175,10 +181,9 @@
 - 禅理、佛学、古风元素
 - 每段剧情300-500字
 
-【项目位置】
-- 当前项目在：d:/ai_code/script_kill（或VPS路径）
-- 输出文件到：demo/ 目录
-- 文件名：demo/[剧本英文名]_solo.json
+【音频路径规范】
+- 音频根目录：/audio/[剧本英文名]/
+- 主角音频：/audio/[剧本英文名]/characters/1001/
 
 请开始创作！
 ```
