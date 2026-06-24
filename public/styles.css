@@ -488,7 +488,7 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   
   /* 结算页面手机端优化 */
   .result-card { 
-    padding: 12px; 
+    padding: 16px;
     margin-bottom: 12px;
   }
   .result-header {
@@ -519,6 +519,17 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     margin-top: 12px;
     padding: 12px 14px;
     font-size: 14px;
+    word-break: break-word;
+    line-height: 1.6;
+    white-space: normal;
+  }
+  
+  /* 标准答案区域文字优化 */
+  .scene p {
+    word-break: break-word;
+    line-height: 1.8;
+    font-size: 14px;
+    overflow-wrap: break-word;
   }
   
   /* 答案审查表格横向滚动 */
@@ -527,11 +538,17 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
     -webkit-overflow-scrolling: touch;
   }
   .review-table {
-    min-width: 480px;
+    min-width: 420px;
   }
   .review-row {
-    font-size: 14px;
+    grid-template-columns: 90px 1fr;
+    font-size: 13px;
     padding: 8px 10px;
+    gap: 10px;
+  }
+  .review-row span {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   
   /* 讨论问题卡片 */
