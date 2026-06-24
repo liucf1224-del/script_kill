@@ -1,0 +1,326 @@
+{
+  "err": 0,
+  "msg": "",
+  "params": {
+    "userId": 10001,
+    "script": {
+      "scriptId": 900001,
+      "scriptName": "遗嘱未眠",
+      "narrator_voice": "冰糖",
+      "album": "",
+      "cover": "/临时集团.png",
+      "music": "/sleep.mp3",
+      "player": 3,
+      "introduce": "暴雨夜，盛海林氏集团创始人林启山猝死在旧宅书房。次日将公开的新遗嘱不翼而飞，桌上却多出一份盖有真印章的替换遗嘱。三名与继承直接相关的人被留在林宅旧楼：长子林砚舟、养女林晚棠、私人律师周予衡。5到8分钟内，玩家需要通过角色私密信息、公开线索和三轮问答，判断林启山的死亡原因、遗嘱为何被替换，以及真正的新遗嘱想保护什么。",
+      "scene": "现代豪门·暴雨旧宅",
+      "author": "AI Demo",
+      "score": 0,
+      "round": 3,
+      "playedCount": 0,
+      "price": 0,
+      "duration": "5-8分钟",
+      "difficulty": "新手友好",
+      "style": "轻推理 / 情感还原 / 无直接凶手",
+      "hostTip": "适合 demo 展示：每名玩家先读自己的角色剧本，再按轮次公开线索。主持人只需控制节奏，不需要额外补充复杂规则。",
+      "flow": [
+        {
+          "step": 1,
+          "title": "开场与选角",
+          "duration": "1分钟",
+          "content": "展示故事简介、三名角色卡，让玩家选择角色并阅读私密剧本。"
+        },
+        {
+          "step": 2,
+          "title": "三轮搜证问答",
+          "duration": "4-5分钟",
+          "content": "每轮展示场景提示、公开线索和讨论问题，引导玩家拼出时间线、遗嘱真假和死亡原因。"
+        },
+        {
+          "step": 3,
+          "title": "最终还原",
+          "duration": "1-2分钟",
+          "content": "玩家选择死亡真相、遗嘱替换方向和真正遗嘱目的，再展示标准答案。"
+        }
+      ],
+      "tags": [
+        "现代",
+        "豪门",
+        "遗产",
+        "推理",
+        "三人本",
+        "短时长Demo"
+      ],
+      "characters": [
+        {
+          "id": 3001,
+          "name": "林砚舟",
+          "voice": "白桦",
+          "introduce": "男，32岁，林氏集团执行总裁，林启山长子。冷静、强势，长期被父亲以继承权约束。",
+          "avatar": "",
+          "flag": 1,
+          "roleTag": "被怀疑的长子",
+          "publicGoal": "证明自己不是害死父亲的人。",
+          "data": {
+            "script": "你是林砚舟。父亲林启山死前一周突然撤掉你主导的并购案，并要求你交出集团印章。你怀疑他要把控制权交给养女林晚棠。暴雨夜22:39，你进入书房与父亲争吵。父亲说：‘你想要林氏，就先学会别毁掉它。’你愤怒离开时，他还活着。你隐瞒的是：你拿走了书桌抽屉里的旧遗嘱复印件，因为那份遗嘱显示你只能继承少量股份。你不是想杀他，你只是想知道父亲是否从未信任过你。",
+            "task": "我的任务：\n1、证明自己没有杀害林启山。\n2、查清桌上遗嘱是否真实。\n3、判断林晚棠和周予衡是否隐瞒了继承安排。\n4、在最终还原前公开至少一条能保护自己的线索。",
+            "secret": "你在22:55返回过书房门口，但没有进去。你听见里面传来玻璃杯落地声，以及父亲压低声音说：‘按我说的办，明天公开。’",
+            "discovery": [
+              {
+                "id": 5001,
+                "keyword": "旧遗嘱复印件",
+                "type": "文件关键词",
+                "content": "复印件日期为三年前，林砚舟只继承15%股份，剩余股份进入家族信托。角落有林启山手写批注：‘砚舟尚不能独掌。’",
+                "isPublic": false,
+                "content_audio": "/audio/yizhu_weimian/characters/3001/discovery_0.mp3"
+              },
+              {
+                "id": 5002,
+                "keyword": "并购案撤回邮件",
+                "type": "文件关键词",
+                "content": "林启山在死亡当日18:10向董事会发邮件，要求暂停林砚舟主导的并购案，理由是‘风险来源并非市场，而是内部授权链条’。",
+                "isPublic": true,
+                "content_audio": "/audio/yizhu_weimian/characters/3001/discovery_1.mp3"
+              }
+            ],
+            "script_audio": "/audio/yizhu_weimian/characters/3001/script.mp3",
+            "secret_audio": "/audio/yizhu_weimian/characters/3001/secret.mp3",
+            "task_audio": "/audio/yizhu_weimian/characters/3001/task.mp3"
+          },
+          "introduce_audio": "/audio/yizhu_weimian/characters/3001/introduce.mp3"
+        },
+        {
+          "id": 3002,
+          "name": "林晚棠",
+          "voice": "茉莉",
+          "introduce": "女，27岁，林家养女，公益基金负责人。温和疏离，知道自己身世另有隐情。",
+          "avatar": "",
+          "flag": 2,
+          "roleTag": "遗嘱上的受益人",
+          "publicGoal": "确认父亲留下遗嘱的真正原因。",
+          "data": {
+            "script": "你是林晚棠。外界都以为你只是林家的养女，但林启山死前告诉你，你的亲生母亲苏棠曾与他共同创立林氏早期核心资产。暴雨夜21:50，你收到林启山短信，让你去书房签署基金会文件。你到达时发现父亲情绪紧张，他让你无论发生什么都相信周予衡。23:04，你再次进入书房，发现父亲倒在地上，桌上遗嘱写着你的名字。你害怕所有人认为你为继承权见死不救，所以没有第一时间报警。",
+            "task": "我的任务：\n1、查清林启山为何在死前重提我的身世。\n2、确认桌上遗嘱是否真实有效。\n3、隐藏自己延迟报警的事实，除非能解释原因。\n4、找出父亲死亡前真正接触过文件的人。",
+            "secret": "你带走了书房里的蓝色钢笔。那支笔不是为了伪造签名，而是你母亲留下的遗物，笔帽内侧刻着‘S.T.’。",
+            "discovery": [
+              {
+                "id": 5003,
+                "keyword": "蓝色钢笔",
+                "type": "物品关键词",
+                "content": "钢笔笔帽内侧刻着‘S.T.’，与林氏早期资料中的联合创始人苏棠姓名缩写一致。笔尖残留深蓝墨水，与桌上遗嘱签字颜色一致。",
+                "isPublic": false,
+                "content_audio": "/audio/yizhu_weimian/characters/3002/discovery_0.mp3"
+              },
+              {
+                "id": 5004,
+                "keyword": "21:50短信",
+                "type": "通讯关键词",
+                "content": "林启山发给林晚棠：‘到书房来，签完这份文件，你就知道你母亲当年留下了什么。不要告诉砚舟。’",
+                "isPublic": true,
+                "content_audio": "/audio/yizhu_weimian/characters/3002/discovery_1.mp3"
+              }
+            ],
+            "script_audio": "/audio/yizhu_weimian/characters/3002/script.mp3",
+            "secret_audio": "/audio/yizhu_weimian/characters/3002/secret.mp3",
+            "task_audio": "/audio/yizhu_weimian/characters/3002/task.mp3"
+          },
+          "introduce_audio": "/audio/yizhu_weimian/characters/3002/introduce.mp3"
+        },
+        {
+          "id": 3003,
+          "name": "周予衡",
+          "voice": "苏打",
+          "introduce": "男，35岁，林家私人律师，负责林启山遗嘱与家族信托。理性谨慎，熟悉所有法律文件。",
+          "avatar": "",
+          "flag": 4,
+          "roleTag": "掌握真遗嘱的律师",
+          "publicGoal": "证明遗嘱被替换，并保护真实继承安排。",
+          "data": {
+            "script": "你是周予衡。你为林启山服务七年，知道林氏继承安排远比外界复杂。死亡当晚22:21，你按约抵达林宅，带来一份新遗嘱和一份信托补充协议。林启山签署时手在发抖，却坚持次日公开。23:00左右，你短暂离开去取公证附件；回来时发现新遗嘱不见了，桌上多了一份内容相似但关键条款被替换的版本。你没有立刻报警，因为替换版本同样盖有真实印章，一旦处理不当，你也会被卷入伪造遗嘱的嫌疑。",
+            "task": "我的任务：\n1、保护律师职业责任，避免被认定参与伪造遗嘱。\n2、证明桌上遗嘱不是完整的新遗嘱。\n3、判断谁在23:00前后最可能接触文件。\n4、公开关键法律线索，引导最终还原。",
+            "secret": "你知道林启山患有严重心脏病，随身药瓶放在书房保险柜上方。你22:50离开书房时药瓶还在；23:18再回来时，药瓶被打开，里面少了两片。",
+            "discovery": [
+              {
+                "id": 5005,
+                "keyword": "信托补充协议",
+                "type": "文件关键词",
+                "content": "协议显示林氏30%股份将进入公益信托，受益方向与林晚棠负责的基金会有关，但管理权由林砚舟、林晚棠与独立信托方共同监督。",
+                "isPublic": false,
+                "content_audio": "/audio/yizhu_weimian/characters/3003/discovery_0.mp3"
+              },
+              {
+                "id": 5006,
+                "keyword": "缺页公证记录",
+                "type": "文件关键词",
+                "content": "公证记录编号连续，但附件页码缺少第7页。第7页对应新遗嘱中关于集团控制权的核心条款。",
+                "isPublic": true,
+                "content_audio": "/audio/yizhu_weimian/characters/3003/discovery_1.mp3"
+              }
+            ],
+            "script_audio": "/audio/yizhu_weimian/characters/3003/script.mp3",
+            "secret_audio": "/audio/yizhu_weimian/characters/3003/secret.mp3",
+            "task_audio": "/audio/yizhu_weimian/characters/3003/task.mp3"
+          },
+          "introduce_audio": "/audio/yizhu_weimian/characters/3003/introduce.mp3"
+        }
+      ],
+      "rounds": [
+        {
+          "round": 1,
+          "title": "暴雨夜时间线",
+          "duration": "2分钟",
+          "scenePrompt": "窗外暴雨未停，旧楼只剩书房亮着灯。管家调出门禁记录，所有人都意识到：林启山死亡前后，真正进出书房的人并不多。",
+          "goal": "建立三名角色在21:50至23:18之间的行动轨迹。",
+          "hostGuide": "让每名玩家说出自己何时到过书房，但不强制公开私密秘密。重点追问：谁见过活着的林启山？谁只是见到结果？",
+          "publicClues": [
+            {
+              "id": 6001,
+              "keyword": "书房门禁记录",
+              "type": "地点关键词",
+              "content": "21:42林启山进入书房；22:21周予衡进入；22:39林砚舟进入；23:04林晚棠进入；23:18周予衡再次进入。门禁没有显示23:30之后有人进入。",
+              "content_audio": "/audio/yizhu_weimian/rounds/1/clue_0.mp3"
+            },
+            {
+              "id": 6002,
+              "keyword": "碎裂玻璃杯",
+              "type": "物品关键词",
+              "content": "书房地毯上有碎裂玻璃杯，杯口残留淡淡药味，碎片旁有水渍和一小片白色药片粉末。",
+              "content_audio": "/audio/yizhu_weimian/rounds/1/clue_1.mp3"
+            }
+          ],
+          "questions": [
+            {
+              "text": "谁最后一次确认林启山仍然活着？",
+              "audio": "/audio/yizhu_weimian/rounds/1/question_0.mp3"
+            },
+            {
+              "text": "玻璃杯碎裂更像争执造成，还是发病时失手造成？",
+              "audio": "/audio/yizhu_weimian/rounds/1/question_1.mp3"
+            }
+          ],
+          "scenePrompt_audio": "/audio/yizhu_weimian/rounds/1/scene.mp3",
+          "hostGuide_audio": "/audio/yizhu_weimian/rounds/1/guide.mp3"
+        },
+        {
+          "round": 2,
+          "title": "遗嘱真假",
+          "duration": "2分钟",
+          "scenePrompt": "书桌中央压着一份遗嘱，签名和印章都是真的，内容却让三个人都不安心。真正的问题不是‘有没有遗嘱’，而是‘这是不是完整的那一份’。",
+          "goal": "判断桌上遗嘱、旧遗嘱复印件与信托补充协议之间的关系。",
+          "hostGuide": "引导玩家把‘真实印章’和‘缺页记录’分开看：印章真实不代表文件完整，受益人出现也不代表她就是伪造者。",
+          "publicClues": [
+            {
+              "id": 6003,
+              "keyword": "桌上遗嘱",
+              "type": "文件关键词",
+              "content": "桌上遗嘱写明林晚棠继承40%股份，林砚舟继承20%股份，周予衡作为遗嘱执行人。签名为深蓝墨水，印章真实，但纸张页脚编号与公证记录不完全匹配。",
+              "content_audio": "/audio/yizhu_weimian/rounds/2/clue_0.mp3"
+            },
+            {
+              "id": 6004,
+              "keyword": "保险柜划痕",
+              "type": "地点关键词",
+              "content": "书房保险柜外侧有新鲜划痕，但密码输入记录显示当晚只有林启山本人在22:16成功开启过一次。划痕更像有人事后试图确认里面是否还藏着文件。",
+              "content_audio": "/audio/yizhu_weimian/rounds/2/clue_1.mp3"
+            }
+          ],
+          "questions": [
+            {
+              "text": "为什么真实印章会出现在疑似替换遗嘱上？",
+              "audio": "/audio/yizhu_weimian/rounds/2/question_0.mp3"
+            },
+            {
+              "text": "缺失的第7页可能改变的是股份比例，还是集团控制权？",
+              "audio": "/audio/yizhu_weimian/rounds/2/question_1.mp3"
+            }
+          ],
+          "scenePrompt_audio": "/audio/yizhu_weimian/rounds/2/scene.mp3",
+          "hostGuide_audio": "/audio/yizhu_weimian/rounds/2/guide.mp3"
+        },
+        {
+          "round": 3,
+          "title": "死亡真相",
+          "duration": "2分钟",
+          "scenePrompt": "所有证据重新回到林启山本人：他为什么在深夜坚持签字？为什么药瓶被打开？为什么录音里说‘不是给谁赢’？",
+          "goal": "还原林启山死亡原因，并确认真正遗嘱的核心目的。",
+          "hostGuide": "最后一轮不要急着找凶手，先让玩家判断死亡方式，再判断遗嘱目的。若玩家卡住，可提示‘药味来自药片，不一定来自毒药’。",
+          "publicClues": [
+            {
+              "id": 6005,
+              "keyword": "心脏病药瓶",
+              "type": "物品关键词",
+              "content": "药瓶中少了两片速效药。瓶盖上有林启山和林晚棠的指纹，瓶身另有周予衡指纹。没有林砚舟指纹。",
+              "content_audio": "/audio/yizhu_weimian/rounds/3/clue_0.mp3"
+            },
+            {
+              "id": 6006,
+              "keyword": "录音笔残段",
+              "type": "回忆关键词",
+              "content": "录音中林启山说：‘我没有多少时间了。遗嘱不是给谁赢，而是让你们都不能独自毁掉林氏。’随后传来杯子落地声。",
+              "content_audio": "/audio/yizhu_weimian/rounds/3/clue_1.mp3"
+            }
+          ],
+          "questions": [
+            {
+              "text": "林启山是被谋杀、被刺激致死，还是意外病发？",
+              "audio": "/audio/yizhu_weimian/rounds/3/question_0.mp3"
+            },
+            {
+              "text": "真正遗嘱的核心目的是什么？",
+              "audio": "/audio/yizhu_weimian/rounds/3/question_1.mp3"
+            }
+          ],
+          "scenePrompt_audio": "/audio/yizhu_weimian/rounds/3/scene.mp3",
+          "hostGuide_audio": "/audio/yizhu_weimian/rounds/3/guide.mp3"
+        }
+      ],
+      "finalQuestions": [
+        {
+          "id": 7001,
+          "title": "死亡原因",
+          "options": [
+            "被人投毒杀害",
+            "争执后被刺激致死",
+            "心脏病突发，服药失败后死亡"
+          ],
+          "answer": "心脏病突发，服药失败后死亡"
+        },
+        {
+          "id": 7002,
+          "title": "遗嘱状态",
+          "options": [
+            "桌上遗嘱完整有效",
+            "桌上遗嘱盖章真实但关键页被替换",
+            "所有遗嘱都是伪造"
+          ],
+          "answer": "桌上遗嘱盖章真实但关键页被替换"
+        },
+        {
+          "id": 7003,
+          "title": "真正遗嘱目的",
+          "options": [
+            "让林晚棠独自继承林氏",
+            "让林砚舟重新掌控集团",
+            "限制任何一人独掌林氏，建立共同监督结构"
+          ],
+          "answer": "限制任何一人独掌林氏，建立共同监督结构"
+        }
+      ],
+      "answers": {
+        "truth": "林启山当晚因心脏病突发死亡，不存在直接投毒杀人者。杯中药味来自他试图服用的速效药，玻璃杯落地说明他发病时手抖失控。遗嘱被替换发生在22:50至23:05之间，替换者利用真实印章制造有效假象，但缺失的第7页暴露了条款不连续。真正的新遗嘱并非让某一人独占林氏，而是将核心股份置入共同监督结构，限制任何单一继承人独掌集团。",
+        "keyEvidence": [
+          "书房门禁记录",
+          "碎裂玻璃杯",
+          "缺页公证记录",
+          "信托补充协议",
+          "录音笔残段"
+        ],
+        "finalChoice": "demo默认保留开放结局：可以不强制指认替换遗嘱者，把重点放在死亡真相和继承安排上。若后续扩写为正式本，可把替换者明确设为23:00前后最熟悉文件流程且能接触印章的人。",
+        "hostReveal": "最终复盘时先公布死亡原因，再公布遗嘱问题，最后解释林启山真正想防止的是任何一个继承人独自毁掉林氏。",
+        "rewards": {
+          "winner_message": "🏆 答题最佳！奖励2瓶啤酒 🍺🍺",
+          "loser_message": "😅 再接再厉，罚喝3杯啤酒 🍺🍺🍺"
+        }
+      }
+    }
+  }
+}

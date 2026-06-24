@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  script-kill:
+    build: .
+    container_name: script-kill-app
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./data.json:/app/data.json
+      - ./demo:/app/demo
+      - ./public:/app/public
+      - ./script_kill.sqlite3:/app/script_kill.sqlite3
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1

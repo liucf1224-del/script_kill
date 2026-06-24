@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI剧本杀平台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span>剧</span>AI剧本杀平台</div>
+    <nav>
+      <button class="nav-btn active" data-view="hall">游戏大厅</button>
+      <button class="nav-btn" data-view="room">我的房间</button>
+      <button id="musicToggle" class="nav-btn music-btn" type="button">♪ 音乐关</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login" class="login-card">
+      <div>
+        <p class="eyebrow">OpenID 登录模拟</p>
+        <h1>进入剧本杀大厅</h1>
+        <p>本地 demo 使用 open_id 作为真实用户标识，后续可替换成微信/公众号/小程序登录。</p>
+      </div>
+      <div class="login-form">
+        <input id="openIdInput" placeholder="open_id，例如 wx_demo_001">
+        <input id="nicknameInput" placeholder="昵称，例如 玩家1892">
+        <button id="loginBtn" class="primary">登录进入</button>
+      </div>
+    </section>
+
+    <section id="hall" class="view hidden">
+      <div class="hero">
+        <p class="eyebrow">轻松本 / 5-8分钟</p>
+        <h1>游戏大厅</h1>
+        <p>创建房间后必须凑满人数、完成选角，房主才能推进流程。</p>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="scripts">剧本库</button>
+        <button class="tab" data-tab="rooms">我的/等待房间</button>
+      </div>
+      <div class="join-box">
+        <input id="roomIdInput" placeholder="输入房间号加入，例如 A1B2C3">
+        <button id="joinByIdBtn" class="primary">加入房间</button>
+      </div>
+      <div id="scriptGrid" class="grid"></div>
+      <div id="roomList" class="room-list hidden"></div>
+    </section>
+
+    <section id="room" class="view hidden">
+      <div class="room-head">
+        <button id="backHall" class="ghost">← 返回大厅</button>
+        <div>
+          <h1 id="roomTitle">房间</h1>
+          <p id="roomSub">等待玩家准备</p>
+        </div>
+        <div class="head-actions">
+          <button id="deleteRoomBtn" class="danger hidden">删除房间</button>
+          <button id="startBtn" class="primary">开始游戏</button>
+        </div>
+      </div>
+
+      <div id="flowSteps" class="flow-steps"></div>
+
+      <div class="room-layout">
+        <aside class="panel">
+          <h3>玩家列表</h3>
+          <div id="players" class="players"></div>
+          <button id="copyRoomBtn" class="secondary">复制邀请文案</button>
+          <p id="roomHint" class="hint"></p>
+        </aside>
+
+        <section class="panel stage">
+          <div id="waitingStage">
+            <div class="empty-icon">♟</div>
+            <h2>等待玩家选角</h2>
+            <p>本剧本为 3 人轻松本。每个角色只能被一名玩家选择，所有玩家选角后房主才可开始。</p>
+            <div id="characterCards" class="characters"></div>
+          </div>
+
+          <div id="playingStage" class="hidden">
+            <div class="round-toolbar">
+              <button id="prevRound" class="ghost">上一轮</button>
+              <span id="roundBadge"></span>
+              <button id="nextRound" class="ghost">下一轮</button>
+            </div>
+            <div id="roundContent"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="roleDialog" class="role-dialog">
+    <button id="closeRole" class="close">×</button>
+    <div id="roleContent"></div>
+  </dialog>
+
+  <dialog id="confirmDialog" class="confirm-dialog">
+    <h3 id="confirmTitle">请确认</h3>
+    <p id="confirmMessage"></p>
+    <div class="dialog-actions">
+      <button id="cancelConfirm" class="ghost">取消</button>
+      <button id="okConfirm" class="danger">确认</button>
+    </div>
+  </dialog>
+
+  <div id="toastHost" class="toast-host" aria-live="polite"></div>
+  <audio id="bgMusic" preload="auto" loop></audio>
+
+  <script src="/app.js"></script>
+</body>
+</html>
