@@ -296,7 +296,7 @@ function renderFlowSteps() {
   const finalReady = status === 'finished';
   const steps = [
     ['waiting', '1 等待 / 选角'],
-    ['playing', '2 三轮搜证'],
+    ['playing', '2 搜证问答'],
     ['answering', '3 个人作答'],
     ['finished', '4 结算复盘'],
   ];
