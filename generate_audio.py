@@ -35,12 +35,17 @@ except ImportError:
 # ==================== 配置 ====================
 
 # MiMo API 配置
-MIMO_API_KEY = "tp-csicbb3fxt0xysqjvo5lifti3ebrfh28kb367jox9i28atri"
+MIMO_API_KEY = "tp-c9tq216mq9kyvxik1u46rx8a1mq0954cre6pgzzdu9vfp9iq"
 MIMO_API_URL = "https://token-plan-cn.xiaomimimo.com/v1/chat/completions"
 
 # 文件路径
-SCRIPT_JSON = "demo/yizhu_weimian_demo.json"
-OUTPUT_DIR = "public/audio/yizhu_weimian"
+# SCRIPT_JSON = "demo/yizhu_weimian_demo.json"
+# OUTPUT_DIR = "public/audio/yizhu_weimian"
+
+# 文件路径
+SCRIPT_JSON = "demo/huagu_solo.json"       # ← 改为画骨的JSON文件
+OUTPUT_DIR = "public/audio/huagu"           #← 改为画骨的输出目录
+
 
 # ==================== 核心功能 ====================
 
@@ -56,6 +61,10 @@ def generate_speech(text: str, voice: str, output_path: str) -> bool:
     Returns:
         是否成功
     """
+    if os.path.exists(output_path):
+        print(f"  ⏭️  文件已存在，跳过生成")
+        return True
+    
     try:
         response = requests.post(
             MIMO_API_URL,
@@ -198,12 +207,17 @@ def extract_texts_from_script(script: Dict) -> List[Tuple[str, str, str, str]]:
         
         # 讨论问题
         for idx, question in enumerate(round_data.get("questions", [])):
-            texts.append((
-                question,
-                narrator_voice,
-                f"rounds/{round_num}",
-                f"question_{idx}.mp3"
-            ))
+            if isinstance(question, dict):
+                question_text = question.get("text","")
+            else:
+                question_text = question
+            if question_text:
+                texts.append((
+                    question_text,
+                    narrator_voice,
+                    f"rounds/{round_num}",
+                    f"question_{idx}.mp3"
+                ))
     
     return texts
 
@@ -255,10 +269,14 @@ def update_json_with_audio_paths(script: Dict, audio_mapping: Dict[str, str]) ->
                 clue["content_audio"] = audio_mapping[content_key]
         
         for idx, question in enumerate(round_data.get("questions", [])):
-            if question in audio_mapping:
+            if isinstance(question, dict):
+                question_text = question.get("text", "")
+            else:
+                question_text = question
+            if question_text and question_text in audio_mapping:
                 round_data["questions"][idx] = {
-                    "text": question,
-                    "audio": audio_mapping[question]
+                    "text": question_text,
+                    "audio": audio_mapping[question_text]
                 }
     
     return script
