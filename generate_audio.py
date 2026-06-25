@@ -26,6 +26,12 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv 可选，也可以用系统环境变量
+
+try:
     import requests
 except ImportError:
     print("❌ 缺少 requests 库，请先安装:")
@@ -34,17 +40,35 @@ except ImportError:
 
 # ==================== 配置 ====================
 
-# MiMo API 配置
-MIMO_API_KEY = "tp-c9tq216mq9kyvxik1u46rx8a1mq0954cre6pgzzdu9vfp9iq"
+# MiMo API 配置 - 从环境变量读取
+MIMO_API_KEY = os.getenv("MIMO_API_KEY", "")
+if not MIMO_API_KEY:
+    print("❌ 错误：未找到 MIMO_API_KEY 环境变量")
+    print("")
+    print("请通过以下方式之一配置 API Key：")
+    print("")
+    print("  方式1：创建 .env 文件（推荐）")
+    print("    在项目根目录创建 .env 文件，内容：")
+    print("    MIMO_API_KEY=your-key-here")
+    print("")
+    print("  方式2：设置系统环境变量")
+    print("    Windows: set MIMO_API_KEY=your-key-here")
+    print("    Linux:   export MIMO_API_KEY=your-key-here")
+    exit(1)
+
 MIMO_API_URL = "https://token-plan-cn.xiaomimimo.com/v1/chat/completions"
 
-# 文件路径
+# 文件路径-未眠
 # SCRIPT_JSON = "demo/yizhu_weimian_demo.json"
 # OUTPUT_DIR = "public/audio/yizhu_weimian"
 
-# 文件路径
-SCRIPT_JSON = "demo/huagu_solo.json"       # ← 改为画骨的JSON文件
-OUTPUT_DIR = "public/audio/huagu"           #← 改为画骨的输出目录
+# 文件路径-画骨
+# SCRIPT_JSON = "demo/huagu_solo.json"       # ← 改为画骨的JSON文件
+# OUTPUT_DIR = "public/audio/huagu"           #← 改为画骨的输出目录
+
+# 文件路径-三国
+SCRIPT_JSON = "demo/diaochan_fengyun.json"
+OUTPUT_DIR = "public/audio/diaochan"
 
 
 # ==================== 核心功能 ====================

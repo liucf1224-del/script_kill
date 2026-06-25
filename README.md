@@ -70,7 +70,9 @@ script_kill/
 │
 └── 📚 剧本
     └── demo/
-        └── yizhu_weimian_demo.json      # 3人本示例
+        ├── yizhu_weimian_demo.json      # 3人本示例（遗嘱未眠）
+        ├── diaochan_fengyun.json        # 3人本（貂蝉风云录·诙谐三国野史）
+        └── huagu_solo.json              # 单人本示例（画骨·沉浸式解谜）
 ```
 
 ---
