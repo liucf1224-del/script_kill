@@ -106,7 +106,43 @@ p { color: var(--muted); line-height: 1.7; }
   background: rgba(9, 12, 28, 0.45);
 }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
-.script-card { 
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.pagination button {
+  padding: 10px 24px;
+  background: var(--purple);
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--pink);
+  transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.script-card {
   border-radius: 14px; 
   overflow: hidden; 
   display: flex;

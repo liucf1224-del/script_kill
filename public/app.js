@@ -6,6 +6,8 @@ const state = {
   localAnswers: {},
   musicOn: localStorage.getItem('script_music_on') === '1',
   currentAudio: null, // 当前播放的音频
+  currentPage: 1, // 当前页码
+  pageSize: 6, // 每页显示数量
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -175,7 +177,12 @@ async function loadHall() {
 }
 
 function renderScripts() {
-  $('#scriptGrid').innerHTML = state.scripts.map((script) => `
+  const totalPages = Math.ceil(state.scripts.length / state.pageSize);
+  const startIndex = (state.currentPage - 1) * state.pageSize;
+  const endIndex = startIndex + state.pageSize;
+  const currentScripts = state.scripts.slice(startIndex, endIndex);
+  
+  $('#scriptGrid').innerHTML = currentScripts.map((script) => `
     <article class="script-card">
       <div class="cover" style="--cover-image: url('${assetUrl(script.cover, '/临时集团.png')}')">
         <b>${script.scene}</b>
@@ -191,6 +198,25 @@ function renderScripts() {
       </div>
     </article>
   `).join('');
+  
+  // 更新分页控件
+  const pagination = $('#pagination');
+  if (totalPages > 1) {
+    pagination.classList.remove('hidden');
+    $('#pageInfo').textContent = `第 ${state.currentPage} 页 / 共 ${totalPages} 页`;
+    $('#prevPage').disabled = state.currentPage === 1;
+    $('#nextPage').disabled = state.currentPage === totalPages;
+  } else {
+    pagination.classList.add('hidden');
+  }
+}
+
+function changePage(direction) {
+  const totalPages = Math.ceil(state.scripts.length / state.pageSize);
+  state.currentPage = Math.max(1, Math.min(totalPages, state.currentPage + direction));
+  renderScripts();
+  // 滚动到顶部
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 async function renderRooms() {
@@ -678,11 +704,14 @@ function bindEvents() {
   $('#closeRole').onclick = () => $('#roleDialog').close();
   $('#copyRoomBtn').onclick = copyInviteText;
   $('#musicToggle').onclick = () => setMusic(!state.musicOn);
+  $('#prevPage').onclick = () => changePage(-1);
+  $('#nextPage').onclick = () => changePage(1);
   document.querySelectorAll('.nav-btn[data-view]').forEach((btn) => btn.onclick = () => state.user && showView(btn.dataset.view));
   document.querySelectorAll('.tab').forEach((tab) => tab.onclick = () => {
     document.querySelectorAll('.tab').forEach((item) => item.classList.toggle('active', item === tab));
     $('#scriptGrid').classList.toggle('hidden', tab.dataset.tab !== 'scripts');
     $('#roomList').classList.toggle('hidden', tab.dataset.tab !== 'rooms');
+    $('#pagination').classList.toggle('hidden', tab.dataset.tab !== 'scripts');
     if (tab.dataset.tab === 'rooms') renderRooms();
   });
   
